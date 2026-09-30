@@ -1,0 +1,44 @@
+{
+  "name": "n8n-nodes-screenshot-happy",
+  "version": "0.1.1",
+  "description": "n8n community node for Screenshot Happy — capture screenshots, generate PDFs and monitor website visual changes via the Screenshot Happy API.",
+  "keywords": [
+    "n8n-community-node-package",
+    "screenshot",
+    "pdf",
+    "website-monitoring",
+    "visual-regression"
+  ],
+  "license": "MIT",
+  "homepage": "https://screenshot-api-production-ffd7.up.railway.app/",
+  "author": { "name": "Ghezam Capital", "email": "ghezamcapital@gmail.com" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ghezamcapital/n8n-nodes-screenshot-happy.git"
+  },
+  "engines": { "node": ">=22.0.0" },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "lint": "eslint nodes credentials --ext .ts",
+    "lintfix": "eslint nodes credentials --ext .ts --fix",
+    "prepublishOnly": "npm run build && npm run lint"
+  },
+  "files": ["dist"],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": ["dist/credentials/ScreenshotHappyApi.credentials.js"],
+    "nodes": ["dist/nodes/ScreenshotHappy/ScreenshotHappy.node.js"]
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.0",
+    "gulp": "^4.0.2",
+    "n8n-workflow": "*",
+    "typescript": "^5.4.0"
+  },
+  "peerDependencies": { "n8n-workflow": "*" }
+}
