@@ -4,6 +4,7 @@ import {
 	INodeType,
 	INodeTypeDescription,
 	NodeApiError,
+	NodeConnectionTypes,
 	NodeOperationError,
 } from 'n8n-workflow';
 
@@ -22,8 +23,9 @@ export class ScreenshotHappy implements INodeType {
 		defaults: {
 			name: 'Screenshot Happy',
 		},
-		inputs: ['main'],
-		outputs: ['main'],
+		usableAsTool: true,
+		inputs: [NodeConnectionTypes.Main],
+		outputs: [NodeConnectionTypes.Main],
 		credentials: [
 			{
 				name: 'screenshotHappyApi',
@@ -146,14 +148,6 @@ export class ScreenshotHappy implements INodeType {
 				},
 				options: [
 					{
-						displayName: 'CSS Selector',
-						name: 'selector',
-						type: 'string',
-						default: '',
-						placeholder: '#pricing-table',
-						description: 'Capture only the element matching this selector, instead of the whole viewport/page',
-					},
-					{
 						displayName: 'Format',
 						name: 'format',
 						type: 'options',
@@ -177,6 +171,14 @@ export class ScreenshotHappy implements INodeType {
 						typeOptions: { minValue: 1, maxValue: 100 },
 						default: 80,
 						description: 'Only applies when Format is JPEG',
+					},
+					{
+						displayName: 'CSS Selector',
+						name: 'selector',
+						type: 'string',
+						default: '',
+						placeholder: '#pricing-table',
+						description: 'Capture only the element matching this selector, instead of the whole viewport/page',
 					},
 					{
 						displayName: 'Width (Px)',
