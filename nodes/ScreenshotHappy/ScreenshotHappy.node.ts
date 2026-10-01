@@ -148,6 +148,14 @@ export class ScreenshotHappy implements INodeType {
 				},
 				options: [
 					{
+						displayName: 'CSS Selector',
+						name: 'selector',
+						type: 'string',
+						default: '',
+						placeholder: '#pricing-table',
+						description: 'Capture only the element matching this selector, instead of the whole viewport/page',
+					},
+					{
 						displayName: 'Format',
 						name: 'format',
 						type: 'options',
@@ -171,14 +179,6 @@ export class ScreenshotHappy implements INodeType {
 						typeOptions: { minValue: 1, maxValue: 100 },
 						default: 80,
 						description: 'Only applies when Format is JPEG',
-					},
-					{
-						displayName: 'CSS Selector',
-						name: 'selector',
-						type: 'string',
-						default: '',
-						placeholder: '#pricing-table',
-						description: 'Capture only the element matching this selector, instead of the whole viewport/page',
 					},
 					{
 						displayName: 'Width (Px)',
