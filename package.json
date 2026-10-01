@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-screenshot-happy",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "n8n community node for Screenshot Happy — capture screenshots, generate PDFs and monitor website visual changes via the Screenshot Happy API.",
   "keywords": [
     "n8n-community-node-package",
