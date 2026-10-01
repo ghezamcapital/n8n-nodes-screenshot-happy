@@ -14,7 +14,7 @@ export class ScreenshotHappy implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Screenshot Happy',
 		name: 'screenshotHappy',
-		icon: 'file:screenshotHappy.svg',
+		icon: { light: 'file:screenshotHappy.svg', dark: 'file:screenshotHappy.dark.svg' },
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
@@ -421,7 +421,7 @@ export class ScreenshotHappy implements INodeType {
 					returnData.push({ json: { error: (error as Error).message }, pairedItem: { item: i } });
 					continue;
 				}
-				if (error instanceof NodeOperationError) throw error;
+				if (error instanceof NodeOperationError) throw new NodeOperationError(this.getNode(), error);
 				throw new NodeApiError(this.getNode(), error as any);
 			}
 		}
