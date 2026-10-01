@@ -2,6 +2,7 @@ import {
 	IAuthenticateGeneric,
 	ICredentialTestRequest,
 	ICredentialType,
+	Icon,
 	INodeProperties,
 } from 'n8n-workflow';
 
@@ -9,6 +10,8 @@ export class ScreenshotHappyApi implements ICredentialType {
 	name = 'screenshotHappyApi';
 
 	displayName = 'Screenshot Happy API';
+
+	icon: Icon = 'file:../nodes/ScreenshotHappy/screenshotHappy.svg';
 
 	// eslint-disable-next-line n8n-nodes-base/cred-class-field-documentation-url-miscased -- this rule runs the URL VALUE through camelCase(); applying its autofix would mangle this real, working docs link (e.g. 'screenshot-api-production-ffd7' -> 'screenshotApiProductionFfd7'). Keeping the functional URL instead, matching other n8n community nodes' documented handling of this same finding.
 	documentationUrl = 'https://screenshot-api-production-ffd7.up.railway.app/docs';
